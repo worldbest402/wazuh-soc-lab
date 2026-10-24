@@ -1,7 +1,9 @@
 
 # Virtual SOC Lab — Threat Detection & Incident Response with Wazuh
 
-**Building and Evaluating a Security Operations Centre Lab | Cybersecurity Portfolio Project**
+
+**Designed, Built and Evaluated a Virtual Security Operations Centre Using Wazuh**
+
 
 ![Project](https://img.shields.io/badge/Project-Academic_SOC_Lab-blue)
 ![Focus](https://img.shields.io/badge/Focus-Threat_Detection_%26_Incident_Response-34495e)
@@ -184,21 +186,25 @@ Detailed event information identified the source network address `10.0.2.7` and 
 
 This highlighted a detection-coverage limitation: endpoint authentication logging does not automatically provide complete visibility into network scanning activity.
 
-## 6. Detection Scenario — Windows Account and Privilege Changes
+
+## 6. Detection Scenario — Windows Account Compromise and Privilege Escalation
 
 ### Objective
 
-Evaluate whether Wazuh could identify security-relevant local account activity on the Windows 10 endpoint.
+Evaluate whether Wazuh could detect suspicious Windows account creation, account enablement and local privilege escalation activity on the Windows 10 endpoint.
 
 ### Test Execution
 
-A test account named `attacker` was used to simulate unauthorised account and privilege changes.
+This scenario simulated an attacker who had gained access to a Windows 10 endpoint and attempted to establish privileged access.
 
-The account was added to the local Administrators group.
+A local test account named `attacker` was created to simulate unauthorised account activity. The account was subsequently added to the local Administrators group, representing a privilege escalation attempt.
+
+The initial access was assumed as part of the controlled simulation. The testing focused on detecting account-management and privilege changes through Windows security events collected by Wazuh.
 
 ![Administrator Group Modification](screenshots/15-administrator-group-modification.png)
 
-*Figure 15. Successful addition of the test account to the Windows local Administrators group.*
+*Figure 15. Successful addition of the simulated attacker account to the Windows local Administrators group, demonstrating a privilege escalation scenario.*
+
 
 ### Detection and Investigation
 
